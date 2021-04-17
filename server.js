@@ -1,5 +1,10 @@
-// Express Dependency
+// Required dependencies
 const express = require('express');
+const fs = require('fs');
+
+let data = fs.readFileSync('./db/db.json');
+let db = JSON.parse(data);
+console.log(db);
 
 // Express config
 const app = express();
