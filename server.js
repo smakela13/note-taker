@@ -14,10 +14,13 @@ app.use(express.json());
 // Sets up use of the public folder
 app.use('/static', express.static('public'));
 
-// API route files
-require('./public/assets/js/index')(app);
+// API and HTML route files
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 // Listener to start server
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`);
 });
+
+
