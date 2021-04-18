@@ -1,10 +1,5 @@
 // Required dependencies
 const express = require('express');
-const fs = require('fs');
-
-let data = fs.readFileSync('./db/db.json');
-let db = JSON.parse(data);
-console.log(db);
 
 // Express config
 const app = express();
@@ -17,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Sets up use of the public folder
-app.use('/static', express.static('public'));
+app.use(express.static('public'));
 
 // API and HTML route files
 require('./routes/apiRoutes')(app);
@@ -27,3 +22,4 @@ require('./routes/htmlRoutes')(app);
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`);
 });
+
