@@ -1,67 +1,70 @@
-const { uuid } = require('uuidv4');
+// Dependencies for fs and uuid
+const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
+// Function to read the database
 function readDB() {
     let info = fs.readFileSync('./db/db.json', 'utf8');
     let db = JSON.parse(info);
+    
     return db;
 }
 
+// Function to write to the database
 function writeDB(data) {
-    fs.writeFile('./db/db.json', data, (err) =>
+    fs.writeFile('./db/db.json', JSON.stringify(data), (err) =>
         err ? console.error(err) : console.log('Success!')
     );
 }
 
 module.exports = (app) => {
-
+    // GET route for API
     app.get('/api/notes', (req, res) => res.json(readDB()));
 
+    // POST route for API
     app.post('/api/notes', (req, res) => {
         let note = req.body;
         
-        console.log(note);
-
+        /* Gives a status code if something goes wrong
+            Otherwise, it handles the POST request */
         if (note.title === undefined || note.text === undefined) {
-            res.status(503);
+            res.status(400);
             res.send('No Title or Text detected');
         } else {
-            let oldData = readDB();
+            let currData = readDB();
             
             const noteObj = {
                 title: note.title,
                 text: note.text,
-                id: uuid(),
+                id: uuidv4()
             };
-            console.log(oldData);
-            console.log("oldData");
-            console.log(noteObj);
-            oldData.push(noteObj);
-            writeDB(JSON.stringify(oldData));
+            currData.push(noteObj);
+            writeDB(currData);
 
             res.status(200);
             res.send('Thank you!');
         }
-    })
+    });
 
-    app.delete('/api/notes:id', (req, res) => {
-        let deleteID = req.body;
+    // DELETE route for API
+    app.delete('/api/notes/:id', (req, res) => {
+        let deleteID = req.params.id;
 
-        if (deleteID.uuid === undefined) {
-            res.status(503);
+        /* Gives a status code if something goes wrong
+            If all is good, it handles the DELETE request */
+        if (deleteID === undefined) {
+            res.status(400);
             res.send('No Title or Text detected');
         } else {
-            let oldData = readDB();
+            let currData = readDB();
 
-            let filtered = oldData.filter(function (value, index, arr) {
-                return value.id !== deleteID.uuid;
+            let filtered = currData.filter(function (value) {
+                return value.id !== deleteID;
             });
-            console.log("filtered")
-            console.log(filtered)
-            writeDB(JSON.stringify(filtered));
+            writeDB(filtered);
 
             res.status(200);
-            res.send('Thank you!');
+            res.send(deleteID);
         }
     })
 };

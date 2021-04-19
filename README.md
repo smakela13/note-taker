@@ -1,3 +1,37 @@
+# Note Taker
+
+## Table of Contents
+
+* [Description](#description)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+
+## Description
+
+Is your life hectic? Do you need a better way to keep track of your day?
+
+This note taking application will give you the ability to input all of the tasks that are on your schedule. Simply type in your plans for the week, hit the save icon in the upper right hand corner of the screen, and your note will be saved on the column to the left. When you're ready to create a new note, simply click on the pencil and then type in a new title and text for your plans. To view the text of previous, click on the name of the note. Once you've completed the task, you can simply hit the trash can, and it will disappear.
+
+You're guaranteed to feel more in control of your week with this helpful note taker app!
+
+This note taker is written in JavaScript using Express.js and Node.js. It is deployed on Heroku.
+
+## Usage
+
+![Sarah Makela's Note Taker](./assets/smakela-note-taker-screenshot.png)
+
+Navigate to [Sarah Makela's Note Taker]() and view the web page.
+
+## Credits
+
+Created by [Sarah Makela](https://github.com/smakela13).
+
+## License
+
+This website currently has No License, which means it is under exclusive copyright. No one can copy, distribute, or modify this website without permission.
+
+
 # 11 Express.js: Note Taker
 
 ## Your Task
