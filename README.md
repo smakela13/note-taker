@@ -19,9 +19,9 @@ This application is written in JavaScript using Express.js and Node.js. It's dep
 
 ## Usage
 
-![Sarah Makela's Note Taker](./assets/smakela-note-taker-screenshot.png)
+![Soma Makela's Note Taker](./assets/smakela-note-taker-screenshot.png)
 
-Navigate to [Sarah Makela's Note Taker](https://stormy-hollows-84415.herokuapp.com/) and view the web page.
+Navigate to [Soma Makela's Note Taker](https://stormy-hollows-84415.herokuapp.com/) and view the web page.
 
 * Once you're there, type in a note title and text for your note.
 * The save icon allows you to save your note.
@@ -30,7 +30,7 @@ Navigate to [Sarah Makela's Note Taker](https://stormy-hollows-84415.herokuapp.c
 
 ## Credits
 
-Created by [Sarah Makela](https://github.com/smakela13).
+Created by [Soma Makela](https://github.com/smakela13).
 
 ## License
 
